@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite o tamanho do vetor:");
+        if (int.TryParse(Console.ReadLine(), out int tamanho) && tamanho > 0)
+        {
+            int[] vetor = new int[tamanho]; 
+
+           
+            for (int i = 0; i < tamanho; i++)
+            {
+                Console.WriteLine($"Digite o número {i + 1}:");
+                if (int.TryParse(Console.ReadLine(), out int numero))
+                {
+                    vetor[i] = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Número inválido. Digite um número inteiro válido.");
+                    i--; 
+                }
+            }
+
+          
+            Console.WriteLine("Números digitados:");
+            foreach (int num in vetor)
+            {
+                Console.WriteLine(num);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Tamanho inválido. Digite um número inteiro positivo.");
+        }
+    }
+}
